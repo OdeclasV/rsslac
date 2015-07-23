@@ -13,6 +13,11 @@
 
 <h1>LAC News</h1>
 
+<h2>Argentina</h2>
+		<div id="feedControlFour">
+			<p>Loading...</p>
+		</div>
+
 <h2>El Salvador</h2>
 		<div id="feedControl">
 			<p>Loading...</p>
@@ -22,7 +27,6 @@
 		<div id="feedControlTwo">
 			<p>Loading...</p>
 		</div>
-</body>
 
 <h2>Guatemala</h2>
 		<div id="feedControlThree">
@@ -76,6 +80,23 @@
     displayTime : 2000,
   }
   new GFdynamicFeedControl(feed, "feedControlThree", options);
+  }
+  /* Use google.load() to load the AJAX Feeds API */
+  /* Use google.setOnLoadCallback() to call loadFeedControl once the page loads  */
+  google.load("feeds", "1");
+  google.setOnLoadCallback(loadFeedControl);
+
+</script>
+
+ <script type="text/javascript">
+  function loadFeedControl() {
+    var feed  =" http://www.laprensa.com.ar/ResourcesManager.aspx?Resource=Rss.aspx&Rss=4";
+    var fg = new GFdynamicFeedControl(feed, "feedControlFour");
+	var options = {
+    numResults : 8,
+    displayTime : 4000,
+  }
+  new GFdynamicFeedControl(feed, "feedControlFour", options);
   }
   /* Use google.load() to load the AJAX Feeds API */
   /* Use google.setOnLoadCallback() to call loadFeedControl once the page loads  */
